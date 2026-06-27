@@ -112,7 +112,8 @@
   "rho_sim": 0.541,            // utilización media medida
   "tower_utilization": [0.55, 0.54, 0.53],  // por torre (len = c)
   "overheat_events": [3, 2, 4],             // sobrecalentamientos por torre
-  "base_hp_end": 92            // vida residual de la base (100 − leaks·daño)
+  "base_hp_init": 100,         // vida inicial de la base
+  "base_hp_end": 92            // vida residual de la base (init − leaks·daño)
 }
 ```
 
