@@ -50,3 +50,9 @@ wikilinks. Las fuentes crudas quedaron resumidas en `sources/`.
   `optimo-economico` (hoy viven dentro de [[modelo-de-colas]] y [[analisis-recomendaciones]]).
 - Sin contradicciones detectadas entre páginas. Sin huérfanas (todas enlazadas desde [[index]]).
 - Próximas preguntas abiertas registradas en [[sintesis]] (no estacionariedad, tipos de enemigo, IC).
+
+## [2026-06-27] experiment | Réplicas+IC, no estacionario y tipos de enemigo
+Backend gana `experiments.py` (Módulo B+). Resultados volcados en [[sintesis]]: c*=3 robusto
+(IC95% sobre 12 réplicas); oleadas → dimensionar al pico; heterogeneidad con misma media sube la
+fuga (varianza importa). Refactor: streams aleatorios independientes (arribos/servicio/tipo) para
+números aleatorios comunes; output.json regenerado (fuga base ahora ~4%).
