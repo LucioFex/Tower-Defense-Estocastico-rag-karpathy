@@ -1,3 +1,10 @@
+---
+alias: modelo-de-colas
+tags: [concepto, unidad-3, colas]
+sources: [teoria-de-colas-u3, formulas-mm1]
+updated: 2026-06-27
+---
+
 # 03 — Modelo de Colas: Kendall-Lee, M/M/1 y M/M/c
 
 ## 3.1 Notación de Kendall-Lee
@@ -146,3 +153,11 @@ mientras TM < T_sim:
 SimPy abstrae esto con `Environment`, `Resource(capacity=c)` y procesos `yield env.timeout(...)`
 (ver [`05_recursos_y_temperatura.md`](./05_recursos_y_temperatura.md)). La disciplina por defecto
 de `simpy.Resource` es **FIFO**, exactamente la requerida.
+
+---
+
+## Relacionado
+[[variables]] · [[recursos-y-temperatura]] · [[generadores-aleatorios]] · [[analisis-recomendaciones]] · [[sintesis]]
+
+## Fuentes
+[[fuente-teoria-de-colas-u3]] · [[fuente-formulas-mm1]]

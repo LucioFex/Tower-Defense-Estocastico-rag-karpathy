@@ -1,3 +1,10 @@
+---
+alias: recursos-y-temperatura
+tags: [modelo, simpy, variable-continua]
+sources: [simpy-clases, teoria-de-colas-u3]
+updated: 2026-06-27
+---
+
 # 05 — Gestión de Recursos (SimPy) y Dinámica de Temperatura
 
 ## 5.1 Recursos en SimPy
@@ -98,3 +105,11 @@ Esto alimenta:
 | COOLDOWN | evento `overheat`/`cooldown_done` | torre "apagada" (gris/parpadeo) |
 | Cola | `samples[].queue_len` | enemigos apilados antes de la zona |
 | Fuga | evento `leak` | enemigo cruza y baja la vida de la base |
+
+---
+
+## Relacionado
+[[variables]] · [[modelo-de-colas]] · [[contrato-datos-json]]
+
+## Fuentes
+[[fuente-simpy-clases]] · [[fuente-teoria-de-colas-u3]]

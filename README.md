@@ -1,11 +1,26 @@
-# Tower Defense Estocástico — RAG / Documentación
+# Tower Defense Estocástico — RAG / LLM Wiki
 
 > Materia: **Simulación de Sistemas** (UCEMA). Entregable: **validación de un modelo de colas**, no un videojuego.
-> Metodología de documentación: **Karpathy RAG** — archivos `.md` planos, crudos y densos, optimizados para ingesta por LLM y lectura humana directa.
+> Metodología: **LLM Wiki** (estilo Karpathy RAG) — `.md` planos, crudos y densos, mantenidos por el
+> LLM como un wiki **persistente e interconectado**, no como chunks que se re-descubren en cada query.
 
 Este repositorio es la **fuente de verdad** del proyecto. Define el problema, las variables, el
 modelo matemático de colas, los generadores de números pseudoaleatorios y —crítico— el
 **contrato de datos `output.json`** que desacopla el backend (Python/SimPy) del frontend (Godot 4).
+
+## Cómo navegar esta wiki
+
+- **Empezá por** [`overview.md`](./overview.md) (mapa) o [`index.md`](./index.md) (catálogo completo).
+- **Conclusiones vivas:** [`synthesis.md`](./synthesis.md). **Cronología:** [`log.md`](./log.md).
+- **Cómo se mantiene** (convenciones + workflows ingest/query/lint): [`CLAUDE.md`](./CLAUDE.md).
+- **Fuentes** de la materia resumidas e integradas en [`sources/`](./sources).
+- Navegación asociativa con `[[wikilinks]]` (Obsidian): cada página declara su `alias` en el
+  frontmatter. La carpeta es un repo git → historial y graph view gratis.
+
+### Las tres capas
+1. **Fuentes crudas** (inmutables): PDFs/notebooks de la cátedra → resumidas en `sources/`.
+2. **Wiki** (este repo): páginas `.md` generadas por el LLM, interconectadas.
+3. **Schema** (`CLAUDE.md`): convenciones y workflows que vuelven al LLM un mantenedor disciplinado.
 
 ## Regla de oro de la arquitectura
 
@@ -20,7 +35,10 @@ modelo matemático de colas, los generadores de números pseudoaleatorios y —c
 - Godot **no calcula nada**: lee la línea de tiempo de eventos y reproduce gráficamente.
 - El esquema de `output.json` es ley: ver [`06_contrato_datos_json.md`](./06_contrato_datos_json.md).
 
-## Índice
+## Índice de páginas de contenido
+
+> Catálogo navegable y por categorías en [`index.md`](./index.md). Los prefijos numéricos marcan el
+> orden de lectura y son citados por el código de los repos hermanos (`RAG/03_...`, `RAG/06`).
 
 | Archivo | Contenido |
 |---|---|

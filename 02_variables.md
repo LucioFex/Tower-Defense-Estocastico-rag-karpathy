@@ -1,3 +1,10 @@
+---
+alias: variables
+tags: [modelo, unidad-2, unidad-3]
+sources: [teoria-de-colas-u3, variables-aleatorias-u2, variable-exponencial]
+updated: 2026-06-27
+---
+
 # 02 — Variables del Modelo (con justificación)
 
 Clasificación según la metodología de la materia: **aleatorias**, **continuas (de estado)**,
@@ -124,3 +131,11 @@ Lo que se mide para sacar conclusiones (Unidad III). Se calculan de dos formas y
 
 > **Ley de Little** (control de consistencia): `L = λ·W` y `Lq = λ·Wq`. La simulación debe
 > reproducir esta identidad; si no lo hace, hay un error de modelado.
+
+---
+
+## Relacionado
+[[caso-de-estudio]] · [[generadores-aleatorios]] · [[recursos-y-temperatura]] · [[modelo-de-colas]]
+
+## Fuentes
+[[fuente-teoria-de-colas-u3]] · [[fuente-variables-aleatorias-u2]] · [[fuente-variable-exponencial]]

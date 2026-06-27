@@ -1,3 +1,10 @@
+---
+alias: generadores-aleatorios
+tags: [concepto, unidad-2, prng]
+sources: [numeros-pseudoaleatorios-u2, variable-exponencial, variables-aleatorias-u2]
+updated: 2026-06-27
+---
+
 # 04 — Generadores de Números Pseudoaleatorios y Variables Aleatorias
 
 > Unidad II. La simulación necesita un flujo de números aleatorios **reproducible**. Documentamos
@@ -84,3 +91,11 @@ x = −T_media · ln(R)
 - Misma `seed` + mismos parámetros ⇒ **mismo `output.json`** ⇒ misma reproducción en Godot.
 - El sweep de `c` usa **la misma semilla por valor de `c`** (técnica de **números aleatorios
   comunes**) para reducir la varianza de la comparación entre escenarios y aislar el efecto de `c`.
+
+---
+
+## Relacionado
+[[variables]] · [[modelo-de-colas]]
+
+## Fuentes
+[[fuente-numeros-pseudoaleatorios-u2]] · [[fuente-variable-exponencial]] · [[fuente-variables-aleatorias-u2]]

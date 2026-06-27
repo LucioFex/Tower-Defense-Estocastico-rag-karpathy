@@ -1,3 +1,10 @@
+---
+alias: analisis-recomendaciones
+tags: [analisis, sintesis, unidad-3]
+sources: [formulas-mm1, teoria-de-colas-u3]
+updated: 2026-06-27
+---
+
 # 07 — Análisis, Rendimiento Marginal Decreciente y Recomendaciones
 
 > Brainstorming analítico: ir más allá de lo obvio. No basta con decir "más torres = mejor".
@@ -103,3 +110,11 @@ El script de análisis imprime en terminal, entre otras:
    bajar el daño total aun con la misma `c`.
 5. **Reducción de varianza:** usar números aleatorios comunes entre escenarios del sweep (ya
    aplicado) y múltiples réplicas con distinta semilla para intervalos de confianza.
+
+---
+
+## Relacionado
+[[modelo-de-colas]] · [[contrato-datos-json]] · [[sintesis]]
+
+## Fuentes
+[[fuente-formulas-mm1]] · [[fuente-teoria-de-colas-u3]]

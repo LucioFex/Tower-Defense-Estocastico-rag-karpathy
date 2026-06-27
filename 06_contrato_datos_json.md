@@ -1,3 +1,10 @@
+---
+alias: contrato-datos-json
+tags: [contrato]
+sources: []
+updated: 2026-06-27
+---
+
 # 06 — Contrato de Datos `output.json` (FUENTE DE VERDAD)
 
 > Este es el **único** punto de acoplamiento entre backend y frontend. El backend **produce**
@@ -219,3 +226,8 @@ El backend valida antes de exportar; el frontend asume que se cumplen:
 8. Si `meta.queue_capacity == -1`, no hay eventos `leak`.
 
 El script `validate_schema.py` del backend chequea 1–8 y **falla la build** si algo no cumple.
+
+---
+
+## Relacionado
+[[modelo-de-colas]] · [[recursos-y-temperatura]] · [[analisis-recomendaciones]]

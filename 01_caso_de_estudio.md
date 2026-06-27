@@ -1,3 +1,10 @@
+---
+alias: caso-de-estudio
+tags: [modelo, unidad-3, colas]
+sources: [teoria-de-colas-u3]
+updated: 2026-06-27
+---
+
 # 01 — Caso de Estudio y Problema a Resolver
 
 ## 1.1 Descripción del sistema real
@@ -86,3 +93,11 @@ para capturar el comportamiento real. La comparación *analítico vs. simulado* 
 - Enemigos homogéneos en la versión base (extensión posible: tipos de enemigo = variable aleatoria
   discreta que escala μ).
 - Sistema **uni-etapa** (sin retroalimentación).
+
+---
+
+## Relacionado
+[[variables]] · [[modelo-de-colas]] · [[recursos-y-temperatura]] · [[sintesis]]
+
+## Fuentes
+[[fuente-teoria-de-colas-u3]]
