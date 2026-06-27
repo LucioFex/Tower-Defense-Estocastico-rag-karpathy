@@ -37,6 +37,7 @@ fuente nueva cambia la evidencia. El detalle metodológico está en [[analisis-r
 | **Réplicas + IC 95%** | fuga(c=3)=4.07%±2.00; `c*=3` robusto en 12 semillas | el óptimo no depende de una corrida afortunada |
 | **No estacionario (oleadas)** | dimensionar al promedio (c=2)→fuga 42%, base destruida; al pico (c=4)→fuga 10%, base sobrevive | **dimensionar al pico, no al promedio** |
 | **Tipos de enemigo** | con **misma media** de servicio, heterogeneidad (mayor varianza) sube la fuga +0.94 pp | la **varianza** del servicio importa, no solo la media (Pollaczek-Khinchine) |
+| **Prioridad no-preemptiva** | atender al "fuerte" primero: Wq_fuerte 4.24→2.15, Wq_débil 4.47→5.88, Wq total ≈ igual, fuga idéntica (4.9%) | la prioridad **reasigna** la espera (work-conserving), no la elimina; conviene si el fuerte es más costoso (**regla cμ**) |
 
 ## Recomendaciones (decisión)
 1. **Dimensionar a `c*`, no al máximo** — sobre-proveer baja ρ (capacidad ociosa) sin reducir fuga.
@@ -49,8 +50,9 @@ fuente nueva cambia la evidencia. El detalle metodológico está en [[analisis-r
 - ✅ ¿Cuánto cambia la fuga con **tipos de enemigo**? → resuelto: la varianza sube la fuga
   (Estudio 3).
 - ✅ Intervalos de confianza vía **réplicas** (reducción de varianza) → Estudio 1.
-- ⬜ Abierta: política de **prioridades** (atacar primero al "fuerte", `PriorityResource`): ¿baja el
-  daño total a igual `c`? (registrada para próxima iteración).
+- ✅ Política de **prioridades** (atacar primero al "fuerte"): resuelto (Estudio 4). No baja la fuga
+  (es por bloqueo de capacidad, no por espera), pero **reasigna** la espera hacia los débiles y baja
+  el tiempo de espera **ponderado por importancia** (regla cμ). Implementado con `PriorityStore`.
 
 ## Fuentes
 [[fuente-teoria-de-colas-u3]] · [[fuente-formulas-mm1]]

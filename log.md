@@ -56,3 +56,9 @@ Backend gana `experiments.py` (Módulo B+). Resultados volcados en [[sintesis]]:
 (IC95% sobre 12 réplicas); oleadas → dimensionar al pico; heterogeneidad con misma media sube la
 fuga (varianza importa). Refactor: streams aleatorios independientes (arribos/servicio/tipo) para
 números aleatorios comunes; output.json regenerado (fuga base ahora ~4%).
+
+## [2026-06-27] experiment | Prioridad no-preemptiva (regla cμ)
+Estudio 4 en `experiments.py` + flag `Scenario(priority=True)` con `simpy.PriorityStore`. Resuelve la
+pregunta abierta: la prioridad al "fuerte" baja su Wq (4.24→2.15) a costa del débil, mantiene el Wq
+total (work-conserving) y NO cambia la fuga (es por bloqueo, no por espera). Vuelca en [[sintesis]].
+Default output.json byte-idéntico (el path homogéneo no consume aleatoriedad extra). 17/17 tests.
