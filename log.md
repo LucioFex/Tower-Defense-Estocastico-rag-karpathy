@@ -62,3 +62,18 @@ Estudio 4 en `experiments.py` + flag `Scenario(priority=True)` con `simpy.Priori
 pregunta abierta: la prioridad al "fuerte" baja su Wq (4.24→2.15) a costa del débil, mantiene el Wq
 total (work-conserving) y NO cambia la fuga (es por bloqueo, no por espera). Vuelca en [[sintesis]].
 Default output.json byte-idéntico (el path homogéneo no consume aleatoriedad extra). 17/17 tests.
+
+## [2026-06-27] project | 4º repo: presentación (deck HTML Tower Defense)
+Nuevo repo `Tower-Defense-Estocastico-presentaci-n` (GitHub Pages): deck HTML 1920×1080 con web
+component `deck-stage.js`, temática Tower Defense (battlefield, torretas/bichitos/núcleo en SVG),
+gráficos del backend re-renderizados en tema oscuro neón, 17 slides estructuradas en "Waves".
+Construido con la skill `anthropics/skills@pptx` (descartado el .pptx por preferencia de HTML puro) y
+auditado con `wshobson/agents@godot-gdscript-patterns` para el frontend. Integrantes:
+Luciano Esteban, Thaiel Anaya, Martín Blasson, Luca Sucri (sin apodos en el deck). Prof.: Sergio
+Sirotinsky (Ing. en Informática, UCEMA). Demo en vivo invitada en varias slides. Pendiente: fotos de
+las pruebas y activar/confirmar GitHub Pages. Ver [[overview]] §repos hermanos.
+
+## [2026-06-27] lint | Cifras del deck son placeholders de la corrida actual
+Las métricas que aparecen en el deck (c*=3, Little 1.2%, fuga sim 4.0%, ΔLq=[2.53,0.25,0.05,0.01],
+prioridad 4.24→2.15s) provienen de la corrida base y PUEDEN CAMBIAR con la práctica final. Centralizadas
+en [[sintesis]] y en el README del repo de presentación (regenerar gráficos con make_dark_charts.py).

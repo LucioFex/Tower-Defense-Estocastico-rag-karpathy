@@ -43,5 +43,6 @@ recomendaciones).
 3. **Schema** (`CLAUDE.md`): convenciones + workflows (ingest / query / lint).
 
 ## Repos hermanos
-- Backend SimPy: `Tower-Defense-Estocastico-back` (genera `output.json`).
+- Backend SimPy: `Tower-Defense-Estocastico-back` (genera `output.json`; Módulos A/B/B+ + experimentos).
 - Frontend Godot: `Tower-Defense-Estocastico-front` (consume `output.json`).
+- Presentación: `Tower-Defense-Estocastico-presentaci-n` (deck HTML temática Tower Defense, GitHub Pages).
