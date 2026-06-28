@@ -1,7 +1,7 @@
 ---
 alias: log
 tags: [log, cronologia]
-updated: 2026-06-27
+updated: 2026-06-28
 ---
 
 # Log — Registro cronológico (append-only)
@@ -104,3 +104,37 @@ Ver [[overview]] §repos hermanos.
 Las métricas que aparecen en el deck (c*=3, Little 1.2%, fuga sim 4.0%, ΔLq=[2.53,0.25,0.05,0.01],
 prioridad 4.24→2.15s) provienen de la corrida base y PUEDEN CAMBIAR con la práctica final. Centralizadas
 en [[sintesis]] y en el README del repo de presentación (regenerar gráficos con make_dark_charts.py).
+
+## [2026-06-28] doc | Guía de pruebas HTML para el equipo
+Creada `back/docs/guia_de_pruebas.html` (commit `3ec3885`, pusheado): documento autocontenido (un
+solo archivo, sin dependencias; se abre con doble clic), estética oscura/neón. Tiene el paso a paso de
+TODAS las verificaciones (entorno → 17 tests → main → validate_schema → analysis → experiments → front
+Godot) con comando, salida esperada real y, en cada paso, el tema de la materia que demuestra. Cierra
+con una **matriz "temas de la materia ↔ dónde se prueban"** (16 filas: PRNG congruencial, transformada
+inversa, Kendall-Lee, M/M/1, Erlang C, M/M/c/K/bloqueo, Little, simulación por eventos, EDO de
+temperatura, validación sim-vs-teoría, IC/réplicas, no estacionario, prioridad cμ, óptimo económico).
+QA visual con Chrome headless + CDP. Pensada para defender el TP.
+
+## [2026-06-28] state | HANDOFF — estado para continuar en otra sesión
+Snapshot para retomar. **Los 4 repos están pusheados y sincronizados con origin/main** (owner
+LucioFex, branch main):
+- **rag-karpathy** (esta wiki): mantenida; contrato output.json v1.0; [[sintesis]] con la tesis viva.
+- **back**: 17/17 tests; pipeline main/validate/analysis/experiments verificado; reproducibilidad
+  byte-idéntica; mejora didáctica (puente al algoritmo de lista de eventos + estimadores/Little);
+  README al día; `docs/guia_de_pruebas.html`. venv en `.venv` (sin pytest: correr
+  `python tests/test_modelo.py`).
+- **front**: Godot 4.3; **compila y render verificado** (headless + build web + screenshot real). Único
+  no-versionado: `icon.svg.import` (se regenera). Toolchain de validación (Godot portátil + templates +
+  Chrome/CDP) quedó en el scratchpad de la sesión, NO instalado: hay que rebajarlo si se reabre.
+- **presentaci-n**: deck HTML 17 slides; sincronizado; cifras = placeholders de la corrida base.
+
+**Pendientes (próxima sesión):**
+1. Corrida FINAL de cifras (cuando esté la práctica): re-correr back, actualizar [[sintesis]] + README
+   del back + deck (`make_dark_charts.py`) + las cifras de `guia_de_pruebas.html`. Hoy todas son
+   placeholders de λ=0.4 μ=0.25 c=3 K=10 seed=42.
+2. Sumar FOTOS de las pruebas reales / capturas del juego al deck (`assets/photos/`).
+3. Activar/confirmar GitHub Pages del deck.
+4. (Opcional) abrir el front en Godot con GUI para el check visual pixel-a-pixel (el headless cubre
+   todo menos eso).
+Convenciones vigentes: equipo sin el apodo «Tincho»; commits en español + línea Co-Authored-By;
+pushear solo cuando el usuario lo pida.
