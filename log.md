@@ -141,3 +141,41 @@ LucioFex, branch main):
    todo menos eso).
 Convenciones vigentes: equipo sin el apodo «Tincho»; commits en español + línea Co-Authored-By;
 pushear solo cuando el usuario lo pida.
+
+## [2026-06-28] project | Pulido del deck + guion de presentación por integrante
+Trabajo sobre el repo `presentaci-n` (todo pusheado a origin/main):
+- **Fotos/nombres del equipo** agrandados en cierre y portada (clase `.members--big`, avatar 62→128px,
+  nombre 20→32px). Una 2ª sesión en paralelo resolvió lo mismo a la vez; se consolidó en un único
+  mecanismo (`.members--big`) y se quitó el bloque CSS duplicado. **Cuidado: evitar editar `index.html`
+  del deck desde dos sesiones simultáneas.**
+- **Identificador sutil por slide**: foto del **referente/lead** + nº de slide en el footer (a la
+  izquierda de "Ing. en Informática"); sin foto en portada/cierre (ahí ya está todo el equipo).
+  Reparto por Waves → Luciano: 01·02·03·04·17 · Thaiel: 05·06·07 · Martín: 08·09·10·16 · Luca: 11·12·13·14·15.
+- **Cierre desacoplado de la demo**: la slide 17 «¡Gracias!» ya no reinvita a la demo (la demo es la 15);
+  eyebrow "PREGUNTAS & DEMO"→"PREGUNTAS".
+- **Animaciones / look & feel** (CSS puro, gated en `[data-deck-active]` del `deck-stage.js`; anuladas en
+  `@media print` y `prefers-reduced-motion` → PDF y accesibilidad intactos): entrada en cascada por slide
+  (deal-in, re-disparada al volver), grilla viva que se desplaza, barrido holográfico, scanlines CRT,
+  baliza de radar en el HUD (latido + anillo), púas que laten, avisos de demo "respirando", shimmer en
+  los titulares (`em`) y micro-interacciones al hover.
+- **Guion de presentación** nuevo: `guion_presentacion.html` + `.pdf` (22 págs, commit `839d54f`). Una
+  sección por **referente/lead**; cada slide con 3 subsecciones: *Puntos a presentar*, *Apoyo teórico/
+  práctico* y *★ Apoyo material estudio* (conceptos clave de clase etiquetados por Unidad I/II/III).
+  Encuadre de **equipo** (presentación colaborativa; el **cierre lo hace Luciano**). Generado con
+  Chrome `--headless --print-to-pdf` (escribir a otra carpeta + `--user-data-dir` temporal por bloqueo
+  de perfil). El `.pdf` queda commiteado como binario → al regenerar desde el `.html`, re-commitear ambos.
+- Backend re-corrido para sostener cifras (17/17 tests, `main.py`/`analysis.py`) y `make_dark_charts.py`
+  regenerado → gráficos **byte-idénticos** (seed 42). Cifras del deck siguen siendo placeholders.
+
+## [2026-06-28] state | HANDOFF — cierre de sesión (deck + guion)
+Los 4 repos en `origin/main` (owner LucioFex). Cambios de esta sesión pusheados (deck hasta `131d931`;
+guion `839d54f`). **Usuario = Luciano Esteban** (presenta el cierre).
+**Pendientes para la próxima sesión:**
+1. **Corrida FINAL de cifras** (hoy placeholders λ=0.4 μ=0.25 c=3 K=10 seed=42): re-correr back y propagar
+   a [[sintesis]], README del back, deck (`make_dark_charts.py`) y `back/docs/guia_de_pruebas.html`.
+2. Sumar **fotos de las pruebas reales** / capturas del juego al deck (`assets/`).
+3. **Activar/confirmar GitHub Pages** del deck.
+4. (Opcional) check visual del front en Godot con GUI (el headless cubre todo menos eso).
+- El bug visual de la slide 1 (encabezado pegado) quedó **resuelto** en sesión previa (commit `d90f9b0`).
+- Al regenerar el guion: re-commitear `guion_presentacion.html` + `.pdf` juntos (el PDF es binario).
+Convenciones: commits en español + línea Co-Authored-By; pushear solo cuando el usuario lo pida.
