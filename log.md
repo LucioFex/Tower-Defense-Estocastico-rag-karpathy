@@ -134,7 +134,10 @@ LucioFex, branch main):
    placeholders de λ=0.4 μ=0.25 c=3 K=10 seed=42.
 2. Sumar FOTOS de las pruebas reales / capturas del juego al deck (`assets/photos/`).
 3. Activar/confirmar GitHub Pages del deck.
-4. (Opcional) abrir el front en Godot con GUI para el check visual pixel-a-pixel (el headless cubre
+4. **Bug visual en el deck (slide 1):** el usuario notó que el texto de arriba aparece "pegado" con
+   otro texto y se ve mal (probable solape/espaciado en el encabezado de la primera slide). Revisar
+   `index.html` de la presentación y corregir el layout/margen del título superior.
+5. (Opcional) abrir el front en Godot con GUI para el check visual pixel-a-pixel (el headless cubre
    todo menos eso).
 Convenciones vigentes: equipo sin el apodo «Tincho»; commits en español + línea Co-Authored-By;
 pushear solo cuando el usuario lo pida.
