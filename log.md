@@ -241,3 +241,44 @@ Notas útiles: **Godot 4.3 portátil** en `Documents/UCEMA/anio_5/simul_sis_tp/g
 Regenerar guion/guía PDF con Chrome `--headless --print-to-pdf --no-pdf-header-footer --user-data-dir <temp>`.
 Capturas del juego: `Godot ... --path <front> --shot` (dispara al llegar la sim a t=50; ruta en `SHOT_PATH`).
 Convenciones: commits en español + Co-Authored-By; **commitear y pushear SIEMPRE** (regla nueva); equipo sin «Tincho».
+
+## [2026-06-29] project | Deck: slide "La máquina de la demo" (Luciano) + re-sync del guion a 22 slides
+Trabajo en `presentaci-n` (todo pusheado a origin/main).
+
+**Deck (`index.html`) — pasa de 21 a 22 slides:**
+- Nueva **slide 03 · "La máquina de la demo"** (referente **Luciano**, arco de apertura, después de
+  Recorrido): *establishing shot* de alto nivel del **runtime de la demo en vivo**, complementaria —no
+  duplicada— de la slide de **Arquitectura desacoplada** de Luca (ahora la 16, contrato/repos).
+  Pipeline vivo con paquete de datos animado por el riel: `SimPy (offline)` —exporta→ `output.json
+  (contrato, semilla fija)` —lee→ `Godot 2D (reproduce e interpola)`; nodo "EN VIVO" con badge
+  REPRODUCE·CERO CÁLCULO; cue "▶ EN LA DEMO" (selector en caliente: λ/c/FIFO·Prioridad) y tres
+  cifras-ancla **1× / v1.0 / 0**. CSS nuevo gated en `[data-deck-active]`, neutralizado en
+  `@media print` + `prefers-reduced-motion` → PDF/accesibilidad intactos. Renumerados footers `.sn` y
+  comentarios de sección (04..22). El contador actual/total de `deck-stage.js` es **dinámico** (no se
+  toca JS al agregar `<section>`). Commit deck `6355e83`.
+- **Reparto real del deck (22 slides):** Luciano 01·02·03·04·05·22 · Thaiel 06·07·08·09·10 ·
+  Martín 11·12·13·21 · Luca 14·15·16·17·18·19·20.
+
+**Guion (`guion_presentacion.html`/`.pdf`) — re-sincronizado:** estaba en el esquema **viejo de 17
+slides** (nunca se regeneró tras el overhaul que llevó el deck a 21). Re-mapeado 1:1 a las 22 slides:
+renumeradas las 17 entradas, corregido el reparto y la portada, y **redactadas 5 entradas nuevas** con
+los 3 bloques de siempre (Puntos a presentar / Apoyo teórico-práctico / ★ Apoyo material estudio por
+Unidad): **03 Panorama**, **09/10 Código SimPy I/II**, **18 Diccionario visual**, **19 HUD/escenarios**.
+PDF regenerado (Chrome headless) y re-commiteado junto al `.html`. Commit `b51f5e6`.
+Terminología solo-de-clase respetada (nombres de autor descriptos; sin PK/cμ/EOQ/Mersenne como tema).
+
+## [2026-06-29] state | HANDOFF — cierre de sesión (slide demo + guion)
+4 repos en origin/main (owner LucioFex); todo pusheado. Usuario = **Luciano Esteban**.
+Últimos commits: front `64ab13d` · back `61d422e` · presentaci-n `b51f5e6` (deck `6355e83` + guion `b51f5e6`).
+**Estado:** deck = **22 slides** (alta la 03 "La máquina de la demo"); guion alineado 1:1 al deck.
+**Pendientes próxima sesión (sin cambios de fondo):**
+1. Corrida FINAL de cifras: **alineada** para λ=0.4 μ=0.25 c=3 K=10 seed=42. Solo re-propagar
+   (back + `make_dark_charts.py` + guía + deck) si cambian los parámetros prácticos.
+2. **Tipos de monstruo VISIBLES** (goblin vs orco por tipo + Wq por tipo en HUD): requiere que el back
+   emita el `tipo` por enemigo (contrato **v1.1**) y que el front lo lea. Es el ítem sustancioso pendiente.
+3. Activar/confirmar **GitHub Pages** del deck (si se quiere web, incluir `scenarios/*.json` en el build).
+4. (Opcional) render final del **deck** completo a PDF (hoy se generó uno de verificación, NO commiteado).
+5. (Opcional) check visual del front en Godot con GUI.
+Notas útiles: **Godot 4.3 portátil** en `Documents/UCEMA/anio_5/simul_sis_tp/godot/Godot_v4.3-stable_win64.exe`.
+PDFs con Chrome `--headless=new --no-pdf-header-footer --user-data-dir <temp> --print-to-pdf`.
+Convenciones: commits en español + Co-Authored-By; **commitear y pushear SIEMPRE**; equipo sin «Tincho».
