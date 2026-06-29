@@ -179,3 +179,65 @@ guion `839d54f`). **Usuario = Luciano Esteban** (presenta el cierre).
 - El bug visual de la slide 1 (encabezado pegado) quedó **resuelto** en sesión previa (commit `d90f9b0`).
 - Al regenerar el guion: re-commitear `guion_presentacion.html` + `.pdf` juntos (el PDF es binario).
 Convenciones: commits en español + línea Co-Authored-By; pushear solo cuando el usuario lo pida.
+
+## [2026-06-28] project | Sesión grande: overhaul del juego, escenarios y deck/guía auto-explicativos
+Trabajo en `front`, `back` y `presentaci-n` (todo pusheado a origin/main).
+
+**Juego (front · Godot 4.3):**
+- Overhaul visual MEDIEVAL con assets CC0 (Kenney + 0x72 DungeonTileset II): pasto/camino tileados,
+  cueva de goblins en el spawn, torres de piedra, goblins/orcos animados, castillo; ambientación
+  (tinte cálido + viñeta + escenografía: lago, árboles, ovejas, ciervo, aves). Ventana 1600x900.
+- HUD DIDÁCTICO configurable por teclas (H/L/T/C/G): estado+parámetros, Validación Teoría vs Sim,
+  óptimo c* (sweep), gráfico de cola en el tiempo, leyenda. Paneles redondeados con acento de color
+  por propósito (verde=validación, dorado=c*, azul=estado/selector, violeta=leyenda) + sombra
+  (`_make_panel_box`); gráfico y cartel "Cola" con el mismo estilo (`draw_style_box`).
+- SELECTOR de escenarios clickeable (arriba-centro): carga corridas precomputadas en caliente
+  (carga λ tranquilo/normal/saturado, torres c=1..6, disciplina FIFO/Prioridad).
+- Fixes: goblins caminan CONTINUO cueva→torre (ya no se congelan/apilan); disparo solo DENTRO del
+  rango (anillo elíptico, mismo cálculo); sprites anclados por su contenido (no "flotan"); flechas
+  con estela. Hook `--shot` para capturas del juego.
+
+**Backend (`back`):**
+- `make_scenarios.py`: genera 9 `output.json` en `front/scenarios/` para el selector (corridas Poisson
+  válidas; dt_sample=1.0 para achicar). c=3/Normal reusan el `output.json` canónico.
+- `docs/guia_de_pruebas.html`: nueva sección "Recorrido del código SimPy — dónde y qué mirar" (6
+  fragmentos reales anotados con `archivo:línea`) + `guia_de_pruebas.pdf` generado.
+
+**Deck (`presentaci-n`) — ahora 21 slides:**
+- Slides nuevas: 15 Diccionario visual (concepto↔juego), 16 HUD/escenarios, 14 Frontend con screenshot
+  real, y **08·09 CÓDIGO SimPy** (fragmentos anotados estilo presentación).
+- Auto-documentación: barra **SÍMBOLOS** por slide teórica (define cada símbolo/fórmula); línea
+  **FUENTE DE DATOS** en slides de resultados (de dónde sale cada número); **RUTA DEL DATO**
+  (Escenario→SimPy→output.json→Deck+Juego) en Arquitectura.
+- Arte del juego en el deck con **sprites medievales reales** (símbolos `#td-tower/#td-creep/#td-base`).
+- Guion `guion_presentacion.html/.pdf` con apoyos de estudio más auto-explicativos.
+
+**Re-corrida y alineación:** main/analysis/experiments re-corridos; `make_dark_charts.py` regenerado →
+gráficas **byte-idénticas** ⇒ deck ALINEADO con la corrida base (seed 42): Little 1.2%,
+ΔLq [2.53,0.25,0.05,0.01], c*=3, fuga 4.0% vs 0.16%, oleadas c2=42%/c4=10%, prioridad 4.24→2.15.
+
+**Terminología (criterio de Luciano):** en deck/guion/guía usar SOLO términos vistos en clase
+(verificado contra `sources/`). SACADOS por no estar en el programa → Pollaczek-Khinchine/M-G-1,
+regla cμ, work-conserving, EOQ (reemplazados por descripción de la materia). **Ley de Little SE
+MANTIENE** (decisión de Luciano, aunque no figure en el `source`). **Mersenne Twister NO es del
+apunte** (U2 cubre cuadrados medios + congruencial); descripto como "generador por defecto del
+lenguaje". Regla general: a los términos con nombre de autor, describir qué representan.
+
+**CONVENCIÓN NUEVA (reemplaza la anterior):** **commitear y pushear SIEMPRE, sin preguntar.**
+
+## [2026-06-28] state | HANDOFF — cierre de sesión (juego + deck + recorrido de código)
+4 repos en origin/main (owner LucioFex); todo pusheado. Usuario = **Luciano Esteban**.
+Últimos commits: front `64ab13d` · back `61d422e` · presentaci-n `1de57a1`.
+**Pendientes próxima sesión:**
+1. Corrida FINAL de cifras: **alineada** para λ=0.4 μ=0.25 c=3 K=10 seed=42. Solo re-propagar (back +
+   `make_dark_charts.py` + guía + deck) si cambian los parámetros prácticos.
+2. (Ofrecido, NO hecho) **Tipos de monstruo VISIBLES** en el juego: goblin vs orco coloreados por tipo
+   + Wq por tipo en el HUD (potencia los escenarios FIFO/Prioridad). Requiere que el back emita el
+   `tipo` por enemigo en los eventos (contrato v1.1) y que el front lo lea.
+3. Activar/confirmar **GitHub Pages** del deck (y, si se quiere web, incluir `scenarios/*.json` en el build).
+4. (Opcional) render final del deck completo a PDF para revisión de punta a punta.
+5. (Opcional) check visual del front en Godot con GUI (el headless/`--shot` cubre casi todo).
+Notas útiles: **Godot 4.3 portátil** en `Documents/UCEMA/anio_5/simul_sis_tp/godot/Godot_v4.3-stable_win64.exe`.
+Regenerar guion/guía PDF con Chrome `--headless --print-to-pdf --no-pdf-header-footer --user-data-dir <temp>`.
+Capturas del juego: `Godot ... --path <front> --shot` (dispara al llegar la sim a t=50; ruta en `SHOT_PATH`).
+Convenciones: commits en español + Co-Authored-By; **commitear y pushear SIEMPRE** (regla nueva); equipo sin «Tincho».
