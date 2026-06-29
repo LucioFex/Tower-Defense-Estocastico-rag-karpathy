@@ -282,3 +282,27 @@ Terminología solo-de-clase respetada (nombres de autor descriptos; sin PK/cμ/E
 Notas útiles: **Godot 4.3 portátil** en `Documents/UCEMA/anio_5/simul_sis_tp/godot/Godot_v4.3-stable_win64.exe`.
 PDFs con Chrome `--headless=new --no-pdf-header-footer --user-data-dir <temp> --print-to-pdf`.
 Convenciones: commits en español + Co-Authored-By; **commitear y pushear SIEMPRE**; equipo sin «Tincho».
+
+## [2026-06-29] state | HANDOFF — cierre de sesión (juego web en Pages + controles táctiles + QR)
+4 repos en origin/main (owner LucioFex); todo pusheado. Usuario = **Luciano Esteban**.
+Últimos commits: rag `cc9e75a` · back `61d422e` · front `36a776e` · presentaci-n `e1d6d0b`.
+**Lo hecho esta sesión:**
+1. **GitHub Pages del JUEGO (front) — LIVE:** export HTML5 de Godot 4.3 (release, **sin hilos** →
+   no requiere COOP/COEP, por eso sirve en Pages sin headers especiales) en `front/docs/` + `.nojekyll`,
+   Pages source `main`/`/docs`. URL jugable: **https://luciofex.github.io/Tower-Defense-Estocastico-front/**.
+   `output.json` final (λ=0.4 μ=0.25 c=3 K=10 seed=42) + `scenarios/*.json` quedan horneados en el
+   `index.pck` (sin fetch/CORS). El preset Web apunta a `docs/` → re-export = `--export-release "Web"`.
+   **Invariante:** NO activar `thread_support` (rompe Pages). `index.wasm` ~35 MB (< 100 MB, OK para git).
+2. **Controles táctiles en el front** (para celular): 3 botones chicos (92×26) abajo-izq., bajo el panel
+   de Validación (a la izq. del gráfico de cola): play/pausa (▶/⏸), velocidad (cicla `1·2·4·8·16·32`),
+   reiniciar. Acciones extraídas a helpers `_toggle_play`/`_cycle_speed`/`_restart` compartidos con teclado.
+3. **Pages del DECK — LIVE** (ya estaba activo): https://luciofex.github.io/Tower-Defense-Estocastico-presentaci-n/
+4. **QR al juego en la slide 16 (Arquitectura):** tarjeta `.qr-cta` (esq. inf. der.) con
+   `assets/qr_juego.png` (recortado a solo el QR, 224px) + texto "Escaneá y jugá · Demo web". El QR lo
+   aportó Luciano; verificado con `pyzbar` que decodifica a la URL del front Pages.
+**Pendientes próxima sesión:** (1) corrida FINAL solo re-propagar si cambian parámetros; (2) tipos de
+monstruo VISIBLES (contrato v1.1: back emite `tipo` + front lo lee) — ítem sustancioso; (3) fotos reales
+de pruebas al deck; re-exportar el front si cambian las cifras.
+**Tooling útil:** decodificar QR = `pip install pyzbar` + PIL (cv2 básico NO lee QR estilizados).
+Screenshot de slides = Chrome `--headless=new --window-size=1600,900 --screenshot` sobre `index.html#<n>`
+(deck-stage.js navega por hash `#16`, 1-indexed; sección N = slide N). Convenciones de siempre.
